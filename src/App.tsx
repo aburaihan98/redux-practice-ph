@@ -6,21 +6,21 @@ function App() {
   const dispatch = useAppDispatch();
   const counter = useAppSelector((state) => state.counter);
 
-  const handleIncrement = () => {
-    dispatch(increment());
+  const handleIncrement = (amount: number) => {
+    dispatch(increment(amount));
   };
 
-  const handleDecrement = () => {
-    dispatch(decrement());
+  const handleDecrement = (amount: number) => {
+    dispatch(decrement(amount));
   };
 
   return (
     <>
       <h1>Redux practice</h1>
 
-      <button onClick={handleIncrement}>increment</button>
+      <button onClick={() => handleIncrement(5)}>increment</button>
       <div>{counter.count}</div>
-      <button onClick={handleDecrement}>decrement</button>
+      <button onClick={() => handleDecrement(1)}>decrement</button>
     </>
   );
 }
